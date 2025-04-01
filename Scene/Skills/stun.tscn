@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://bxdgy03veyb6m"]
+
+[ext_resource type="Texture2D" uid="uid://ck48fpjnsvq0r" path="res://Assets/Skill/Bullet 24x24 Free  Part 1B.png" id="1_6y3su"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il0dr"]
+atlas = ExtResource("1_6y3su")
+region = Rect2(384, 240, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jot0"]
+atlas = ExtResource("1_6y3su")
+region = Rect2(408, 240, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hocfm"]
+atlas = ExtResource("1_6y3su")
+region = Rect2(432, 240, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7mxr"]
+atlas = ExtResource("1_6y3su")
+region = Rect2(456, 240, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4nqh"]
+atlas = ExtResource("1_6y3su")
+region = Rect2(480, 240, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1brba"]
+atlas = ExtResource("1_6y3su")
+region = Rect2(504, 240, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvyha"]
+atlas = ExtResource("1_6y3su")
+region = Rect2(528, 240, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew7fa"]
+atlas = ExtResource("1_6y3su")
+region = Rect2(552, 240, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ynxfm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il0dr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jot0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hocfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7mxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4nqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1brba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvyha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew7fa")
+}],
+"loop": true,
+"name": &"stun",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cs62e"]
+radius = 14.0
+
+[node name="stun" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ynxfm")
+animation = &"stun"
+autoplay = "stun"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cs62e")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8c7t80g4mhm6"]
+
+[ext_resource type="Script" uid="uid://qgextpdyra1b" path="res://Scene/Game/game_camera.gd" id="1_5nh0v"]
+
+[node name="GameCamera" type="Camera2D"]
+scale = Vector2(-173.749, -171.643)
+script = ExtResource("1_5nh0v")

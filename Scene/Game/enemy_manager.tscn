@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8o8youoowk70"]
+
+[ext_resource type="Script" uid="uid://bwe66mckx5y21" path="res://Scene/Game/enemy_manager.gd" id="1_rcwf2"]
+[ext_resource type="PackedScene" uid="uid://cy11652e6i75k" path="res://Scene/Characters/orc_1.tscn" id="2_dgyim"]
+
+[node name="EnemyManager" type="Node"]
+script = ExtResource("1_rcwf2")
+orc_1 = ExtResource("2_dgyim")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

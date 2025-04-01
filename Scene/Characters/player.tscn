@@ -1,8 +1,26 @@
-[gd_scene load_steps=38 format=3 uid="uid://c6v34cfa3wq4w"]
+[gd_scene load_steps=43 format=3 uid="uid://c6v34cfa3wq4w"]
 
 [ext_resource type="Script" uid="uid://dsowilfr01y5n" path="res://Scene/Characters/player.gd" id="1_huhnx"]
 [ext_resource type="Texture2D" uid="uid://fmcqds0lfq7w" path="res://Assets/Player/CATSPRITESHEET_Orange.png" id="1_u3ibe"]
-[ext_resource type="PackedScene" uid="uid://bnnsuxtcxuyat" path="res://Scene/Skills/bolt_ability_controller.tscn" id="2_ra2xg"]
+[ext_resource type="PackedScene" uid="uid://c54xc8p05dhfe" path="res://Scene/Skills/sword_ability_controller.tscn" id="2_ra2xg"]
+[ext_resource type="PackedScene" uid="uid://cmcgd6ogko1nt" path="res://Scene/Game/health_component.tscn" id="2_rrv1q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrv1q"]
+bg_color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3w1x"]
+bg_color = Color(0.262745, 0.882353, 0.701961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ra2xg"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rrv1q"]
+radius = 7.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_huhnx"]
 atlas = ExtResource("1_u3ibe")
@@ -275,13 +293,47 @@ animations = [{
 radius = 5.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_huhnx")
 
+[node name="HealthComponent" parent="." instance=ExtResource("2_rrv1q")]
+
 [node name="AbilityManager" type="Node" parent="."]
 
-[node name="BoltAbilityController" parent="AbilityManager" instance=ExtResource("2_ra2xg")]
+[node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_ra2xg")]
+
+[node name="DamageIntervalTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="HpBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(32, 6)
+offset_left = -16.0
+offset_top = -25.0
+offset_right = 16.0
+offset_bottom = -19.0
+pivot_offset = Vector2(16, 3)
+theme_override_styles/background = SubResource("StyleBoxFlat_rrv1q")
+theme_override_styles/fill = SubResource("StyleBoxFlat_r3w1x")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="PickUpArea2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea2D"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_ra2xg")
+
+[node name="CollisionArea2D" type="Area2D" parent="."]
+position = Vector2(0, -5)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
+shape = SubResource("CircleShape2D_rrv1q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c0yu3")
@@ -291,5 +343,3 @@ offset = Vector2(0, -10)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_u3ibe")
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]

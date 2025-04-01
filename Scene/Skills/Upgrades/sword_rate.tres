@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SkillUpgrade" load_steps=2 format=3 uid="uid://dj21gnfdohd1m"]
+
+[ext_resource type="Script" uid="uid://dxmdw37vmy3df" path="res://Scene/Skills/Upgrades/skill_upgrade.gd" id="1_vy47h"]
+
+[resource]
+script = ExtResource("1_vy47h")
+id = "sword_rate"
+name = "Sword Attack Speed"
+description = "Increases sword attack rate by 10%"

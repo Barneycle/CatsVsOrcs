@@ -8,4 +8,5 @@ script = ExtResource("1_rcwf2")
 orc_1 = ExtResource("2_dgyim")
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 autostart = true

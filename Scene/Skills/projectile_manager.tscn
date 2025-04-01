@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnp2a5htd62xc"]
-
-[ext_resource type="Script" uid="uid://cb33s5rb12ubq" path="res://Scene/Skills/projectile_manager.gd" id="1_ulgmk"]
-[ext_resource type="PackedScene" uid="uid://xywhpdpeo3t" path="res://Scene/Skills/bolt.tscn" id="2_8bwxm"]
-
-[node name="ProjectileManager" type="Node" groups=["ProjectileManager"]]
-script = ExtResource("1_ulgmk")
-bolt_scene = ExtResource("2_8bwxm")
